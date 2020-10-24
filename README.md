@@ -14,8 +14,18 @@ You can add `--no-cache` option when you want to run build the image without cac
 ```console
 $ docker-compose up
 ```
-Now you can use PenguinHouse APIs.  
-Access to `http://localhost:9000/api/v1/h`, you will get a response with 200.
+
+```consle
+$ curl_h localhost:9009/api/v1/h
+HTTP/1.1 200 OK
+Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+X-Frame-Options: DENY
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Permitted-Cross-Domain-Policies: master-only
+Date: Sat, 24 Oct 2020 05:13:26 GMT
+Content-Length: 0
+```
 
 ### stop
 Just press `Ctrl + c`.
