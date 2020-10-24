@@ -1,10 +1,11 @@
 version: "3"
 
-services: 
+services:
   app:
-    build: 
-      context: ./docker
+    build:
+      context: ./
+      dockerfile: ./docker/play/Dockerfile
     volumes:
       - ./:/opt/workspace:cached
-    ports: 
+    ports:
       - "9000:9000"
