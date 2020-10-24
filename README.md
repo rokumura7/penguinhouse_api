@@ -26,3 +26,18 @@ Just press `Ctrl + c`.
 ```console
 $ sbt test
 ```
+
+## MySQL
+
+### Container
+
+```console
+$ docker exec -it penguin-mysql bash
+# mysql -upenguin -p penguinhouse
+```
+
+### From Local
+
+```console
+$ mysql -upenguin -p penguinhouse -h127.0.0.1 -P5306
+```

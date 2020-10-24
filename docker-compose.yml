@@ -1,11 +1,32 @@
 version: "3"
 
 services:
-  app:
+  penguin-app:
     build:
       context: ./
       dockerfile: ./docker/play/Dockerfile
     volumes:
       - ./:/opt/workspace:cached
     ports:
-      - "9000:9000"
+      - "9009:9000"
+    environment:
+      DB_PASSWORD: penguinhouse
+    depends_on:
+      - penguin-mysql
+
+  penguin-mysql:
+    image: mysql:8
+    container_name: penguin-mysql
+    volumes:
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./logs/mysql:/var/log/mysql
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: penguinhouse
+      MYSQL_USER: penguin
+      MYSQL_PASSWORD: penguin
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 5306:3306
+    security_opt:
+      - seccomp:unconfined
