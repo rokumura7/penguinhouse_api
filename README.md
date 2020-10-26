@@ -16,7 +16,7 @@ $ docker-compose up
 ```
 
 ```consle
-$ curl_h localhost:9009/api/v1/h
+$ curl -I localhost:9009/api/v1/h
 HTTP/1.1 200 OK
 Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
 X-Frame-Options: DENY
