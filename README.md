@@ -15,6 +15,7 @@ You can add `--no-cache` option when you want to run build the image without cac
 $ docker-compose up
 ```
 
+check connection
 ```consle
 $ curl -I localhost:9009/api/v1/h
 HTTP/1.1 200 OK
