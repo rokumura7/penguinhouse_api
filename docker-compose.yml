@@ -31,3 +31,14 @@ services:
     # https://github.com/docker-library/mysql/issues/422
     security_opt:
       - seccomp:unconfined
+
+  s3:
+    image: minio/minio
+    ports:
+      - "9013:9000"
+    volumes:
+      - ./.docker/minio/data:/export
+    environment:
+      MINIO_ACCESS_KEY: penguinhouse
+      MINIO_SECRET_KEY: penguinhouse
+    command: server /export
