@@ -42,3 +42,14 @@ services:
       MINIO_ACCESS_KEY: penguinhouse
       MINIO_SECRET_KEY: penguinhouse
     command: server /export
+  mc:
+    image: minio/mc
+    depends_on:
+      - s3
+    entrypoint: >
+      /bin/sh -c "
+      until (/usr/bin/mc config host add myminio http://s3:9000 penguinhouse penguinhouse) do echo '...waiting...' && sleep 1; done;
+      /usr/bin/mc mb myminio/penguin;
+      /usr/bin/mc policy download myminio/penguin;
+      exit 0;
+      "
