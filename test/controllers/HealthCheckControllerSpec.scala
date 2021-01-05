@@ -1,17 +1,38 @@
 package controllers
 
+import org.mockito.Mockito._
+import org.scalatestplus.mockito.MockitoSugar
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
+import play.api.mvc.ControllerComponents
+import play.api.mvc.Results.InternalServerError
 import play.api.test._
 import play.api.test.Helpers._
+import repositories.HealthCheckRepository
 
-class HealthCheckControllerSpec extends PlaySpec with GuiceOneAppPerTest {
+object HealthCheckControllerSpec extends PlaySpec with GuiceOneAppPerTest with MockitoSugar {
+  private val ccMock = mock[ControllerComponents]
+  private val repoMock = mock[HealthCheckRepository]
+  private val controller = new HealthCheckController(ccMock, repoMock)
 
-  "HealthCheckController GET" must {
-    "Able to access '/api/v1/h' with GET" in {
-      val request  = FakeRequest(GET, "/api/v1/h")
-      val response = route(app, request).get
-      status(response) mustBe OK
+  private val failRepoMock = mock[HealthCheckRepository]
+  when(failRepoMock.canConnect).thenReturn(false)
+  private val failController = new HealthCheckController(ccMock, failRepoMock)
+
+  "HealthCheckController" must {
+    "web be valid" in {
+      val result = controller.web().apply(FakeRequest())
+      status(result) mustBe OK
+    }
+
+    "db be valid" in {
+      val result = controller.db().apply(FakeRequest())
+      status(result) mustBe OK
+    }
+
+    "db be invalid" in {
+      val result = failController.db().apply(FakeRequest())
+      status(result) mustBe InternalServerError
     }
   }
 }
