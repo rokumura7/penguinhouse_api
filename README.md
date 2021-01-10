@@ -58,7 +58,7 @@ $ sbt test
 
 ```console
 $ docker exec -it penguin-mysql bash
-# mysql -upenguin -ppenguinhouse
+# mysql -upenguin -ppenguin
 ```
 
 #### From Local
