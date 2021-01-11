@@ -1,2 +1,4 @@
 GET       /api/v1/h                 controllers.HealthCheckController.web
 GET       /api/v1/h/db              controllers.HealthCheckController.db
+
+GET       /api/v1/category/:id      controllers.CategoryController.get(id: Int)
