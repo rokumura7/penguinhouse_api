@@ -58,13 +58,13 @@ $ sbt test
 
 ```console
 $ docker exec -it penguin-mysql bash
-# mysql -upenguin -p penguinhouse
+# mysql -upenguin -ppenguin
 ```
 
 #### From Local
 
 ```console
-$ mysql -upenguin -p penguinhouse -h127.0.0.1 -P5306
+$ mysql -upenguin -ppenguin -h127.0.0.1 -P5306
 ```
 
 ### S3(minio)
