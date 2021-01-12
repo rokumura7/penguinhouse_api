@@ -19,10 +19,6 @@ class CategoryBuilder() {
     this
   }
   def build(): Category = {
-    println("===============")
-    println(categoryId)
-    println(name)
-    println(color)
     if (name.equals("unknown") || color.equals("unknown")) {
       throw new Exception()
     }
