@@ -8,15 +8,15 @@ class PenguinConfSpec extends AbstractSpec {
       PenguinConf.AWS.S3.accessKey shouldBe "penguinhouse"
     }
 
-    it("get secretKey") {
+    it("can get secretKey") {
       PenguinConf.AWS.S3.secretKey shouldBe "penguinhouse"
     }
 
-    it("get endpoint") {
+    it("can get endpoint") {
       PenguinConf.AWS.S3.endpoint shouldBe "http://s3:9000"
     }
 
-    it("get bucket") {
+    it("can get bucket") {
       PenguinConf.AWS.S3.bucket shouldBe "penguin"
     }
   }
