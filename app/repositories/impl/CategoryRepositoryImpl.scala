@@ -15,7 +15,7 @@ class CategoryRepositoryImpl @Inject()(db: Database)  extends AbstractRepository
         builder.categoryId(id)
           .name(rs.getString("name"))
           .color(rs.getString("color"))
-      };
+      }
       builder.build()
     }
     result
