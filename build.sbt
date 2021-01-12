@@ -13,7 +13,7 @@ libraryDependencies  ++= Seq(
   "software.amazon.awssdk" % "aws-sdk-java" % "2.14.12" pomOnly(),
   "mysql" % "mysql-connector-java" % "8.0.13",
   "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
-  "org.mockito" % "mockito-core" % "2.7.19" % Test
+  "org.mockito" % "mockito-core" % "3.7.0" % Test
 )
 
 // Adds additional packages into Twirl
