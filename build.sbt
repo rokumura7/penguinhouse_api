@@ -16,14 +16,6 @@ libraryDependencies  ++= Seq(
   "org.mockito" % "mockito-core" % "2.7.19" % Test
 )
 
-//jacocoIncludes in Test := Seq("utils/PenguinConf")
-jacocoExcludes in Test := Seq(
-  "router.*",
-  "aws.*",
-  "controllers.*",
-  "repositories.*",
-  "utils.Closable",
-)
 jacocoReportSettings := JacocoReportSettings()
   .withTitle("TestCoverage")
   .withFormats(JacocoReportFormats.XML, JacocoReportFormats.HTML)
