@@ -16,6 +16,9 @@ libraryDependencies  ++= Seq(
   "org.mockito" % "mockito-core" % "2.7.19" % Test
 )
 
+jacocoReportSettings := JacocoReportSettings()
+  .withTitle("TestCoverage")
+  .withFormats(JacocoReportFormats.XML, JacocoReportFormats.HTML)
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.penguinhouse.controllers._"
 
