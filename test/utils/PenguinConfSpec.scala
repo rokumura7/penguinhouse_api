@@ -1,25 +1,23 @@
 package utils
 
-import org.scalatestplus.play.PlaySpec
-import org.scalatestplus.play.guice.GuiceOneAppPerTest
-import play.api.test.Helpers.status
+import _stub.AbstractSpec
 
-class PenguinConfSpec extends PlaySpec with GuiceOneAppPerTest{
-  "PenguinConf AWS.S3" must {
-    "get accessKey" in {
-      PenguinConf.AWS.S3.accessKey mustBe "penguinhouse"
+class PenguinConfSpec extends AbstractSpec {
+  describe("PenguinConf AWS.S3") {
+    it("can get accessKey") {
+      PenguinConf.AWS.S3.accessKey shouldBe "penguinhouse"
     }
 
-    "get secretKey" in {
-      PenguinConf.AWS.S3.secretKey mustBe "penguinhouse"
+    it("can get secretKey") {
+      PenguinConf.AWS.S3.secretKey shouldBe "penguinhouse"
     }
 
-    "get endpoint" in {
-      PenguinConf.AWS.S3.endpoint mustBe "http://s3:9000"
+    it("can get endpoint") {
+      PenguinConf.AWS.S3.endpoint shouldBe "http://s3:9000"
     }
 
-    "get bucket" in {
-      PenguinConf.AWS.S3.bucket mustBe "penguin"
+    it("can get bucket") {
+      PenguinConf.AWS.S3.bucket shouldBe "penguin"
     }
   }
 }
